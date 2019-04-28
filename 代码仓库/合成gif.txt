@@ -1,0 +1,13 @@
+import os
+import imageio
+path='imge/'
+filenames=[]
+for i in range(1,399):
+        file=path+str(i)+'.jpg'
+        if os.access(file, os.F_OK):
+            filenames.append(file)
+images=[]
+for filename in filenames:
+        images.append(imageio.imread(filename))
+imageio.mimsave('my.gif',images,duration=0.1)
+
